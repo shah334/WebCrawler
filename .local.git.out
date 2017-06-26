@@ -145,3 +145,30 @@ After doing this, you may fix the identity used for this commit with:
     git commit --amend --reset-author
 
  2 files changed, 16 insertions(+), 1 deletion(-)
+[master (root-commit) 79069ab] Commit web-crawler
+ Committer: CS251 Account <cs251@data.cs.purdue.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 12 files changed, 987 insertions(+)
+ create mode 100644 .local.git.out
+ create mode 100644 Makefile
+ create mode 100644 SimpleHTMLParser.cpp
+ create mode 100644 SimpleHTMLParser.h
+ create mode 100644 fetchHTML.h
+ create mode 100644 gethttp.cpp
+ create mode 100644 openhttp-old.cpp
+ create mode 100644 openhttp-old.h
+ create mode 100644 openhttp.cpp
+ create mode 100644 openhttp.h
+ create mode 100644 webcrawler.cpp
+ create mode 100644 webcrawler.h
