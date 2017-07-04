@@ -2,11 +2,11 @@
 // CS251 Definitions for web-crawler
 
 #include "HashTableTemplate.h"
-
+#include <string.h>
 // Stores a URL and the first 100 words
 struct URLRecord {
   char * _url;          // URL of the document.
-  char * _description;  // First 100 words of the document without tags
+  char * _description;  // First 500 words of the document without tags
 };
 
 // Used to implement a list of URL indexes of the url array.
