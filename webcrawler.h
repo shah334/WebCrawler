@@ -25,9 +25,9 @@ class WebCrawler {
   int _headURL;            // Points to the next URL to scan by the web crawler
   int _tailURL;            // Next position unused in the urlArray
 
-  HashTableTemplate<int> * _urlToUrlRecord;         //  maps a URL to its index in the URLArray 
+  HashTableTemplate<int> ** _urlToUrlRecord;         //  maps a URL to its index in the URLArray 
   
-  HashTableTemplate<URLRecordList *> *_wordToURLRecordList; // maps a word to a list of URLs
+  HashTableTemplate<URLRecordList *> ** _wordToURLRecordList; // maps a word to a list of URLs
 
  public:
   // Create a web crawler object with the initial urls
