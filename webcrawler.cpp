@@ -74,7 +74,7 @@ WebCrawler::crawl()
 
 int main(int argc, char ** argv){
 
-	//printf("hi");
+	printf("hi");
 	//Sample input: webcrawl -u 100 http://www.purdue.edu http://www.slashdot.org http://www.cnn.com
 	int maxUrls = 0;
 	int noUrls = 0;
