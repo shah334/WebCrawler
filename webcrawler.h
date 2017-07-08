@@ -21,7 +21,7 @@ struct URLRecordList {
 class WebCrawler {
   // The url array stores all the URLs that have been scanned
   int _maxUrls;            // Max size of the URL array
-  URLRecord ** _urlArray;   // Array of URLs 
+  URLRecord * _urlArray;   // Array of URLs 
   int _headURL;            // Points to the next URL to scan by the web crawler
   int _tailURL;            // Next position unused in the urlArray
 
