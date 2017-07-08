@@ -3,7 +3,7 @@
 
 #include "HashTableTemplate.h"
 #include <string.h>
-#include <string>
+#include <string> 
 //using namespace std;
 // Stores a URL and the first 500 words
 struct URLRecord {
@@ -21,13 +21,13 @@ struct URLRecordList {
 class WebCrawler {
   // The url array stores all the URLs that have been scanned
   int _maxUrls;            // Max size of the URL array
-  URLRecord ** _urlArray;   // Array of URLs 
+  URLRecord * _urlArray;   // Array of URLs 
   int _headURL;            // Points to the next URL to scan by the web crawler
   int _tailURL;            // Next position unused in the urlArray
 
-  HashTableTemplate<int> ** _urlToUrlRecord;         //  maps a URL to its index in the URLArray 
+  HashTableTemplate<int> * _urlToUrlRecord;         //  maps a URL to its index in the URLArray 
   
-  HashTableTemplate<URLRecordList *> **_wordToURLRecordList; // maps a word to a list of URLs
+  HashTableTemplate<URLRecordList *> *_wordToURLRecordList; // maps a word to a list of URLs
 
  public:
   // Create a web crawler object with the initial urls
