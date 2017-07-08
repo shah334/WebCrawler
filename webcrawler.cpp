@@ -93,6 +93,6 @@ int main(int argc, char ** argv){
 		k++;
 	}
 	WebCrawler crawler = WebCrawler(maxUrls,noUrls,urls);
-	//crawler.crawl();
+	crawler.crawl();
 
 }
