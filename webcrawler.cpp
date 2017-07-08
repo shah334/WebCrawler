@@ -77,9 +77,9 @@ int main(int argc, char ** argv){
 	//Sample input: webcrawl -u 100 http://www.purdue.edu http://www.slashdot.org http://www.cnn.com
 	int maxUrls = 0;
 	int noUrls = 0;
-	string option="";
+	//string option="";
 	int k=0;
-	option = string(argv[1]);
+	//option = string(argv[1]);
 	maxUrls = atoi(argv[2]);
 	noUrls = argc - 3;
 	const char * urls[noUrls];//Store the initial urls.
@@ -88,9 +88,6 @@ int main(int argc, char ** argv){
 		printf("%s", urls[k]);
 		k++;
 	}
-	
-	
-
 	WebCrawler crawler = WebCrawler(maxUrls,noUrls,urls);
 	crawler.crawl();
 
