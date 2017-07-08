@@ -74,7 +74,7 @@ WebCrawler::crawl()
 
 int main(int argc, char ** argv){
 
-	printf("hi");
+	//printf("hi");
 	//Sample input: webcrawl -u 100 http://www.purdue.edu http://www.slashdot.org http://www.cnn.com
 	int maxUrls = 0;
 	int noUrls = 0;
@@ -83,7 +83,7 @@ int main(int argc, char ** argv){
 	//option = string(argv[1]);
 	maxUrls = atoi(argv[2]);
 	char * u = argv[3];
-	printf("%d%s\n",maxUrls,u);
+	//printf("%d%s\n",maxUrls,u);
 	noUrls = argc - 3;
 	const char ** urls = new const char* [noUrls];//Store the initial urls.
 	for(int i=3;i<noUrls;i++){
