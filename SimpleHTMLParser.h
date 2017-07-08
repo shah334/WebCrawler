@@ -15,7 +15,7 @@ class SimpleHTMLParser {
 	bool match(char **b, const char *m);
  public:
 	SimpleHTMLParser();
-	int characterCount = 0;
+	int characterCount;
 	string description;
 	vector<string> urlvector; 
 	bool parse(char * buffer, int n);

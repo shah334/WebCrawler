@@ -210,3 +210,6 @@ After doing this, you may fix the identity used for this commit with:
  3 files changed, 6 insertions(+), 4 deletions(-)
 [master 6eaa36c] Commit web-crawler
  1 file changed, 2 insertions(+)
+[master 9ff5cf1] Commit web-crawler
+ 7 files changed, 348 insertions(+), 10 deletions(-)
+ create mode 100644 HashTableTemplate.h

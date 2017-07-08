@@ -34,7 +34,7 @@ class WebCrawler {
   
   // crawl the web
   void crawl();
-
+  void usage();//prints the usage.
   // Write array of URLs and descriptions to file
   void writeURLFile(const char * urlFileName);
 
