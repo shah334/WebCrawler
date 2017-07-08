@@ -27,7 +27,7 @@ WebCrawler::WebCrawler(int maxUrls, int nInitialURls,  const char ** initialURLs
   // insert the initialURls
   for(int i=0;i<nInitialURls;i++){
 	  _urlArray[i] -> _url = string(initialURLs[i]);
-	  insert = _urlToUrlRecord.insertItem(initialURLs[i],i);//insert the index and urls in _urlToUrlRecord
+	  insert = _urlToUrlRecord->insertItem(initialURLs[i],i);//insert the index and urls in _urlToUrlRecord
    }
   // Update _maxUrls, _headURL and _tailURL
   _headURL = 0;
