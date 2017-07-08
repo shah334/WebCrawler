@@ -40,7 +40,7 @@ WebCrawler::crawl()
 {
   while (_headURL <_tailURL) {
 	 int n;
-	 char * URL = (_urlArray[_headURL]->_url).c_str();
+	 const char * URL = (_urlArray[_headURL]->_url).c_str();
 	 int len;
 	 char * doc = fetchHTML(URL,&len);//get the html document from the URL
 	 if(doc == NULL){
