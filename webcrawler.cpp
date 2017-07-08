@@ -85,7 +85,7 @@ int main(int argc, char ** argv){
 		option = string(argv[1]);
 		maxUrls = atoi(argv[2]);
 		noUrls = argc - 3;
-		const char ** urls[noUrls];//Store the initial urls.
+		char ** urls[noUrls];//Store the initial urls.
 		
 		for(int i=3;i<noUrls;i++){
 			urls[k] = argv[i];
