@@ -25,7 +25,7 @@ WebCrawler::WebCrawler(int maxUrls, int nInitialURls,  const char ** initialURLs
 	printf("%s",initialURLs[0]);
   _urlArray = new URLRecord[maxUrls];
   bool insert;
-  //_urlToUrlRecord = new URLRecordList * [2039];
+  //_urlToUrlRecord = new URLRecordList[2039];
   // insert the initialURls
   for(int i=0;i<nInitialURls;i++){
 	  _urlArray[i]._url = strdup(initialURLs[i]);
