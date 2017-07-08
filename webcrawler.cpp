@@ -78,23 +78,19 @@ int main(int argc, char ** argv){
 	int maxUrls = 0;
 	int noUrls = 0;
 	string option="";
-	if(argc == 1){
-		usage();
-		exit(1);
-	}else{
-		int k=0;
-		option = string(argv[1]);
-		maxUrls = atoi(argv[2]);
-		noUrls = argc - 3;
-		char ** urls[noUrls];//Store the initial urls.
+	int k=0;
+	option = string(argv[1]);
+	maxUrls = atoi(argv[2]);
+	noUrls = argc - 3;
+	char ** urls[noUrls];//Store the initial urls.
 		
-		for(int i=3;i<noUrls;i++){
-			urls[k] = argv[i];
-			k++;		
-		}
+	for(int i=3;i<noUrls;i++){
+		urls[k] = argv[i];
+		k++;		
+	}
 
-		WebCrawler crawler = WebCrawler(maxUrls,noUrls,urls);
-		crawler.crawl();
+	WebCrawler crawler = WebCrawler(maxUrls,noUrls,urls);
+	crawler.crawl();
 	 
 
 
