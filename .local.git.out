@@ -215,3 +215,5 @@ After doing this, you may fix the identity used for this commit with:
  create mode 100644 HashTableTemplate.h
 [master 6260744] Commit web-crawler
  3 files changed, 5 insertions(+), 2 deletions(-)
+[master db3569c] Commit web-crawler
+ 2 files changed, 3 insertions(+), 1 deletion(-)
