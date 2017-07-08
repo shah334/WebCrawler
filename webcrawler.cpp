@@ -13,7 +13,7 @@ char * word;
 void 
 WebCrawler::usage(){
 
-	printf("Example of Input: webcrawl -u 100 http://www.purdue.edu http://www.slashdot.org http://www.cnn.com\n")
+	printf("Example of Input: webcrawl -u 100 http://www.purdue.edu http://www.slashdot.org http://www.cnn.com\n");
 
 }
 
