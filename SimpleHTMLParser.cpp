@@ -24,7 +24,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 	       COMMENT, FRAME, SRC } state;
 
 	state = START;
-
+	characterCount = 0;
 	char * bufferEnd = buffer + n;
 	char * b = buffer;
 	bool lastCharSpace = false;
