@@ -84,7 +84,7 @@ int main(int argc, char ** argv){
 	noUrls = argc - 3;
 	const char ** urls[noUrls];//Store the initial urls.
 	for(int i=3;i<noUrls;i++){
-		urls[k] = argv[i].c_str();
+		urls[k] = (const char*)argv[i];
 		k++;
 	}
 
