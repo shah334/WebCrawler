@@ -28,8 +28,8 @@ WebCrawler::WebCrawler(int maxUrls, int nInitialURls,  const char ** initialURLs
   //_urlToUrlRecord = new URLRecordList * [2039];
   // insert the initialURls
   for(int i=0;i<nInitialURls;i++){
-	  //_urlArray[i]->_url = strdup(initialURLs[i]);
-	  //insert = _urlToUrlRecord->insertItem(initialURLs[i],i);//insert the index and urls in _urlToUrlRecord
+	  _urlArray[i]->_url = strdup(initialURLs[i]);
+	  insert = _urlToUrlRecord->insertItem(initialURLs[i],i);//insert the index and urls in _urlToUrlRecord
    }
   // Update _maxUrls, _headURL and _tailURL
   _headURL = 0;
