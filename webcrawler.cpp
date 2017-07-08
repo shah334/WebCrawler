@@ -51,7 +51,7 @@ WebCrawler::crawl()
 	 SimpleHTMLParser parser;
 	  bool temp = parser.parse(doc,len);//parse the document
 	  int t;
-	  strcpy(_urlArray[_headURL] -> _description,parser.description);
+	  strdup(_urlArray[_headURL] -> _description,parser.description);
 	  for(int i=0;i<parser.urlvector.size();i++){
 		  _urlArray[_tailURL] -> _url = parser.urlvector[i];
 		  if(!_urlToUrlRecord->find(parser.urlvector[i].c_str(),&t)){
