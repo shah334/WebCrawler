@@ -3,6 +3,7 @@
 // Add your implementation here
 #include <vector>
 #include <stdio.h>
+#include "SimpleHTMLParser.h"
 #include <stdlib.h>
 #include <string>
 #include <string.h>
