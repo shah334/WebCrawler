@@ -85,7 +85,7 @@ int main(int argc, char ** argv){
 	char * u = argv[3];
 	printf("%d%s",maxUrls,u);
 	noUrls = argc - 3;
-	char * urls[noUrls];//Store the initial urls.
+	const char * urls[noUrls];//Store the initial urls.
 	for(int i=3;i<noUrls;i++){
 		urls[k] = (const char*)argv[i];
 		printf("%s", urls[k]);
