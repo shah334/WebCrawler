@@ -82,7 +82,7 @@ int main(int argc, char ** argv){
 	int k=0;
 	//option = string(argv[1]);
 	maxUrls = atoi(argv[2]);
-	printf("%s",argv[3]);
+	printf("%d%s",maxUrls,argv[3]);
 	noUrls = argc - 3;
 	const char * urls[noUrls];//Store the initial urls.
 	for(int i=3;i<noUrls;i++){
