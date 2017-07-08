@@ -23,7 +23,7 @@ WebCrawler::WebCrawler(int maxUrls, int nInitialURls,  const char ** initialURLs
   // Allocate space for _urlArray
   _urlArray = new URLRecord * [maxUrls];
   bool insert;
-  _urlToUrlRecord = new URLRecordList * [_urlToUrlRecord->TableSize];
+  _urlToUrlRecord = new URLRecordList * [2039];
   // insert the initialURls
   for(int i=0;i<nInitialURls;i++){
 	  _urlArray[i] -> _url = string(strcat(initialURLs[i],"\""));
