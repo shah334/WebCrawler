@@ -10,7 +10,7 @@ using namespace std;
 char * data;
 char * word;
 
-void 
+void
 WebCrawler::usage(){
 
 	printf("Example of Input: webcrawl -u 100 http://www.purdue.edu http://www.slashdot.org http://www.cnn.com\n");
@@ -23,7 +23,7 @@ WebCrawler::WebCrawler(int maxUrls, int nInitialURls,  const char ** initialURLs
   // Allocate space for _urlArray
   _urlArray = new URLRecord * [maxUrls];
   bool insert;
-  _urlToUrlRecord = new URLRecordList * [TableSize];
+  _urlToUrlRecord = new URLRecordList * [_urlToUrlRecord.TableSize];
   // insert the initialURls
   for(int i=0;i<nInitialURls;i++){
 	  _urlArray[i] -> _url = string(strcat(initialURLs[i],"\""));
