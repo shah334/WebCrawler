@@ -2,7 +2,7 @@
 #include "SimpleHTMLParser.h"
 #include "openhttp.h"
 #include <string.h>
-
+using namespace std;
 SimpleHTMLParser::SimpleHTMLParser()
 {
 }
@@ -24,7 +24,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 	       COMMENT, FRAME, SRC } state;
 
 	state = START;
-	
+
 	char * bufferEnd = buffer + n;
 	char * b = buffer;
 	bool lastCharSpace = false;
@@ -170,8 +170,14 @@ SimpleHTMLParser::parse(char * buffer, int n)
 
 void
 SimpleHTMLParser::onContentFound(char c) {
+	if(characterCount<500){
+		description = description + c;
+		characterCount ++;
+	}
+
 }
 
 void
 SimpleHTMLParser::onAnchorFound(char * url) {
+ 	urlvector.push_back(string(url));//store the urls in the document to the vector.
 }

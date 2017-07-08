@@ -3,7 +3,9 @@
 #define SIMPLEHTMLPARSER_H
 
 #include "openhttp.h"
-
+#include <string>
+#include <vector>
+using namespace std;
 class SimpleHTMLParser {
 	// URL read in anchor
 
@@ -13,7 +15,9 @@ class SimpleHTMLParser {
 	bool match(char **b, const char *m);
  public:
 	SimpleHTMLParser();
-	
+	int characterCount = 0;
+	string description;
+	vector<string> urlvector; 
 	bool parse(char * buffer, int n);
 
 	// Calbacks

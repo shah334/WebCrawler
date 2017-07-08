@@ -3,10 +3,11 @@
 
 #include "HashTableTemplate.h"
 #include <string.h>
-// Stores a URL and the first 100 words
+//using namespace std;
+// Stores a URL and the first 500 words
 struct URLRecord {
-  char * _url;          // URL of the document.
-  char * _description;  // First 500 words of the document without tags
+  std::string _url;          // URL of the document.
+  std::string _description;  // First 500 words of the document without tags
 };
 
 // Used to implement a list of URL indexes of the url array.
