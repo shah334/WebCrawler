@@ -85,8 +85,11 @@ int main(int argc, char ** argv){
 	const char * urls[noUrls];//Store the initial urls.
 	for(int i=3;i<noUrls;i++){
 		urls[k] = (const char*)argv[i];
+		printf("%s", urls[k]);
 		k++;
 	}
+	
+	
 
 	WebCrawler crawler = WebCrawler(maxUrls,noUrls,urls);
 	crawler.crawl();
