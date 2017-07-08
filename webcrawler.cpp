@@ -91,7 +91,7 @@ int main(int argc, char ** argv){
 		printf("%s\n", urls[k]);
 		k++;
 	}
-	//WebCrawler crawler = WebCrawler(maxUrls,noUrls,urls);
+	WebCrawler crawler = WebCrawler(maxUrls,noUrls,urls);
 	//crawler.crawl();
 
 }
