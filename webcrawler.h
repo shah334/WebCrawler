@@ -32,10 +32,10 @@ class WebCrawler {
  public:
   // Create a web crawler object with the initial urls
   WebCrawler(int maxUrls, int nurlRoots, const char ** urlRoots);
-  
+  void usage();
   // crawl the web
   void crawl();
-  void usage();//prints the usage.
+  //prints the usage.
   // Write array of URLs and descriptions to file
   void writeURLFile(const char * urlFileName);
 
