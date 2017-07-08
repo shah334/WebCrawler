@@ -42,7 +42,7 @@ WebCrawler::crawl()
 {
   while (_headURL <_tailURL) {
 	 int n;
-	 const char * URL = (_urlArray[_headURL]->_url);
+	 const char * URL = (_urlArray[_headURL]._url);
 	 int len;
 	 char * doc = fetchHTML(URL,&len);//get the html document from the URL
 	 if(doc == NULL){
@@ -52,9 +52,9 @@ WebCrawler::crawl()
 	 SimpleHTMLParser parser;
 	  bool temp = parser.parse(doc,len);//parse the document
 	  int t;
-	  _urlArray[_headURL]->_description = strdup(parser.description.c_str());
+	  _urlArray[_headURL]._description = strdup(parser.description.c_str());
 	  for(int i=0;i<parser.urlvector.size();i++){
-		  _urlArray[_tailURL]->_url = strdup(parser.urlvector[i].c_str());
+		  _urlArray[_tailURL]._url = strdup(parser.urlvector[i].c_str());
 		  if(!_urlToUrlRecord->find(parser.urlvector[i].c_str(),&t)){
 			  temp = _urlToUrlRecord->insertItem(parser.urlvector[i].c_str(),_tailURL);
 		  }
