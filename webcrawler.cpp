@@ -29,7 +29,7 @@ WebCrawler::WebCrawler(int maxUrls, int nInitialURls,  const char ** initialURLs
   // insert the initialURls
   for(int i=0;i<nInitialURls;i++){
 	  _urlArray[i]._url = strdup(initialURLs[i]);
-	  insert = _urlToUrlRecord->insertItem(_urlArray[i]._url,i);//insert the index and urls in _urlToUrlRecord
+	  //insert = _urlToUrlRecord->insertItem(_urlArray[i]._url,i);//insert the index and urls in _urlToUrlRecord
    }
   // Update _maxUrls, _headURL and _tailURL
   _headURL = 0;
@@ -55,9 +55,9 @@ WebCrawler::crawl()
 	  _urlArray[_headURL]._description = strdup(parser.description.c_str());
 	  for(int i=0;i<parser.urlvector.size();i++){
 		  _urlArray[_tailURL]._url = strdup(parser.urlvector[i].c_str());
-		  if(!_urlToUrlRecord->find(parser.urlvector[i].c_str(),&t)){
-			  temp = _urlToUrlRecord->insertItem(parser.urlvector[i].c_str(),_tailURL);
-		  }
+		 // if(!_urlToUrlRecord->find(parser.urlvector[i].c_str(),&t)){
+			//  temp = _urlToUrlRecord->insertItem(parser.urlvector[i].c_str(),_tailURL);
+		  //}
 		  _tailURL ++;
 	  }
 	 _headURL++;
