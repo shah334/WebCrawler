@@ -3,6 +3,7 @@
 
 #include "HashTableTemplate.h"
 #include <string.h>
+#include <string>
 //using namespace std;
 // Stores a URL and the first 500 words
 struct URLRecord {
