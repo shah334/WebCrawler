@@ -499,3 +499,5 @@ After doing this, you may fix the identity used for this commit with:
  2 files changed, 7 insertions(+), 3 deletions(-)
 [master 73a94a0] Commit web-crawler
  2 files changed, 7 insertions(+), 2 deletions(-)
+[master ad43a14] Commit web-crawler
+ 2 files changed, 4 insertions(+), 2 deletions(-)
