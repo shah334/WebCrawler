@@ -44,7 +44,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			else if (match(&b,"<FRAME ")) {
 				state = FRAME;
 			}
-			else if	(match(&b,"<title")) {
+			else if	(match(&b,"<")) {
 				state = TAG;
 			}
 		    else{
@@ -157,7 +157,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			break;
 		}
 		case TAG: {
-			if (match(&b, "/title>")) {
+			if (match(&b, ">")) {
 				state = START;
 			}
 			else {
