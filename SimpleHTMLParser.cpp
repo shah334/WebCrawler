@@ -44,7 +44,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			else if (match(&b,"<FRAME ")) {
 				state = FRAME;
 			}
-			else if(match(&b,"<TITLE>")){
+			else if (match(&b,"<TITLE>")){
 				while(1){
 					if(match(&b,"</TITLE>"))
 						break;
@@ -62,7 +62,6 @@ SimpleHTMLParser::parse(char * buffer, int n)
 					}
 				   b++;
 			     }
-			   }
 			}
 			else if	(match(&b,"<")) {
 				state = TAG;
