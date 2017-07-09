@@ -154,7 +154,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			break;
 		}
 		case TAG: {
-			if (match(&b, ">")) {
+			if (!match(&b, "/title>")) {
 				state = START;
 			}
 			else {
