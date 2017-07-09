@@ -44,11 +44,11 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			else if (match(&b,"<FRAME ")) {
 				state = FRAME;
 			}
-			else if	(match(&b,"<")) {
+			else if	(match(&b,"<title")) {
 				state = TAG;
 			}
 		    else{
-				if(counter==1){
+				//if(counter==1){
 				char c = *b;
 				//Substitute one or more blank chars with a single space
 				if (c=='\n'||c=='\r'||c=='\t'||c==' ') {
@@ -61,7 +61,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 					onContentFound(c);
 					lastCharSpace = false;
 				  }
-				}
+				//}
 				b++;
 				
 			  }
@@ -157,7 +157,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			break;
 		}
 		case TAG: {
-			if (match(&b, ">")) {
+			if (match(&b, "/title>")) {
 				state = START;
 			}
 			else {
