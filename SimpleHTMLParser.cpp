@@ -48,20 +48,25 @@ SimpleHTMLParser::parse(char * buffer, int n)
 				state = TAG;
 			}
 			else {
-				char c = *b;
-				//Substitute one or more blank chars with a single space
-				if (c=='\n'||c=='\r'||c=='\t'||c==' ') {
-					if (!lastCharSpace) {
-						onContentFound(' ');
+				if(match(&b,"<TITLE>")){
+				while(1){
+					if(match(&b,"</TITLE>"))
+						break;
+						char c = *b;
+						//Substitute one or more blank chars with a single space
+						if (c=='\n'||c=='\r'||c=='\t'||c==' ') {
+							if (!lastCharSpace) {
+							onContentFound(' ');
+						}
+						lastCharSpace = true;
+						}
+						else {
+						onContentFound(c);
+						lastCharSpace = false;
 					}
-					lastCharSpace = true;
-				}
-				else {
-					onContentFound(c);
-					lastCharSpace = false;
-				}
-				
-				b++;
+				   b++;
+			     }
+			   }
 			}
 			break;
 		}
