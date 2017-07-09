@@ -21,10 +21,10 @@ bool
 SimpleHTMLParser::parse(char * buffer, int n)
 {
 	enum { START, TAG, SCRIPT, ANCHOR, HREF,
-	       COMMENT, FRAME, SRC, TITLE } state;
-	int counter = 0;
+	       COMMENT, FRAME, SRC } state;
+
 	state = START;
-	characterCount = 0;
+	
 	char * bufferEnd = buffer + n;
 	char * b = buffer;
 	bool lastCharSpace = false;
@@ -44,14 +44,11 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			else if (match(&b,"<FRAME ")) {
 				state = FRAME;
 			}
-			else if(match(&b,"<TITLE")){
-				state = TITLE;
-			}
 			else if	(match(&b,"<")) {
 				state = TAG;
 			}
-		    else{
-			char c = *b;
+			else {
+				char c = *b;
 				//Substitute one or more blank chars with a single space
 				if (c=='\n'||c=='\r'||c=='\t'||c==' ') {
 					if (!lastCharSpace) {
@@ -62,10 +59,10 @@ SimpleHTMLParser::parse(char * buffer, int n)
 				else {
 					onContentFound(c);
 					lastCharSpace = false;
-				  }
-
+				}
+				
 				b++;
-			  }
+			}
 			break;
 		}
 		case ANCHOR: {
@@ -170,6 +167,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 		
 	}
 }
+
 
 void
 SimpleHTMLParser::onContentFound(char c) {
