@@ -22,7 +22,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 {
 	enum { START, TAG, SCRIPT, ANCHOR, HREF,
 	       COMMENT, FRAME, SRC } state;
-
+	int counter = 0;
 	state = START;
 	characterCount = 0;
 	char * bufferEnd = buffer + n;
@@ -47,7 +47,8 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			else if	(match(&b,"<")) {
 				state = TAG;
 			}
-			else if(match(&b,"<title>")){
+			else{
+				if(counter == 0){
 				char c = *b;
 				//Substitute one or more blank chars with a single space
 				if (c=='\n'||c=='\r'||c=='\t'||c==' ') {
@@ -62,6 +63,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 				}
 				
 				b++;
+			  }
 			}
 			break;
 		}
@@ -156,6 +158,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 		case TAG: {
 			if (match(&b, ">")) {
 				state = START;
+				counter = 1;
 			}
 			else {
 				b++;
