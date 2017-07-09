@@ -24,6 +24,7 @@ WebCrawler::WebCrawler(int maxUrls, int nInitialURls,  const char ** initialURLs
   // Allocate space for _urlArray
 	printf("%s",initialURLs[0]);
   _urlArray = new URLRecord[maxUrls];
+  _urlToUrlRecord = new HashTableTemplate <int>();
   bool insert;
   //_urlToUrlRecord = new URLRecordList[2039];
   // insert the initialURls
