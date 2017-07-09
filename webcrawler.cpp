@@ -60,7 +60,7 @@ WebCrawler::crawl()
 		  	 //_tailURL ++;
 		  	 //printf("%s\n",_urlArray[_tailURL]._url);
 		  //}
-	  	printf("%s",parser.urlvector[i].c_str());
+	  	printf("%s\n",parser.urlvector[i].c_str());
 	  }
 	 _headURL++;
      /*Fetch the next URL in _headURL
