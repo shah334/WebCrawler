@@ -22,15 +22,14 @@ WebCrawler::usage(){
 WebCrawler::WebCrawler(int maxUrls, int nInitialURls,  const char ** initialURLs)
 {
   // Allocate space for _urlArray
-	printf("%s",initialURLs[0]);
+	//printf("%s",initialURLs[0]);
   _urlArray = new URLRecord[maxUrls];
   _urlToUrlRecord = new HashTableTemplate <int>();
   bool insert;
-  //_urlToUrlRecord = new URLRecordList[2039];
-  // insert the initialURls
+ // insert the initialURls
   for(int i=0;i<nInitialURls;i++){
 	  _urlArray[i]._url = strdup(initialURLs[i]);
-	  //insert = _urlToUrlRecord->insertItem(_urlArray[i]._url,i);//insert the index and urls in _urlToUrlRecord
+	  insert = _urlToUrlRecord.insertItem(_urlArray[i]._url,i);//insert the index and urls in _urlToUrlRecord
    }
   // Update _maxUrls, _headURL and _tailURL
   _headURL = 0;
