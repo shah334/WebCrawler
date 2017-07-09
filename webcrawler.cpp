@@ -55,7 +55,7 @@ WebCrawler::crawl()
 	  _urlArray[_headURL]._description = strdup(parser.description.c_str());
 	  for(int i=0;i<parser.urlvector.size();i++){
 		 if(!_urlToUrlRecord->find(parser.urlvector[i].c_str(),&t)){
-			// _urlArray[_tailURL]._url = strdup(parser.urlvector[i].c_str());
+			 _urlArray[_tailURL]._url = strdup(parser.urlvector[i].c_str());
 			 //temp = _urlToUrlRecord->insertItem(_urlArray[_tailURL]._url,_tailURL);
 		  	 //_tailURL ++;
 		  	 //printf("%s\n",_urlArray[_tailURL]._url);
