@@ -21,7 +21,7 @@ bool
 SimpleHTMLParser::parse(char * buffer, int n)
 {
 	enum { START, TAG, SCRIPT, ANCHOR, HREF,
-	       COMMENT, FRAME, SRC } state;
+	       COMMENT, FRAME, SRC, TITLE } state;
 	int counter = 0;
 	state = START;
 	characterCount = 0;
@@ -44,12 +44,14 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			else if (match(&b,"<FRAME ")) {
 				state = FRAME;
 			}
+			else if(match(&b,"<TITLE")){
+				state = TITLE;
+			}
 			else if	(match(&b,"<")) {
 				state = TAG;
 			}
-		    else{
-				//if(counter==1){
-				char c = *b;
+		    //else{
+			/**char c = *b;
 				//Substitute one or more blank chars with a single space
 				if (c=='\n'||c=='\r'||c=='\t'||c==' ') {
 					if (!lastCharSpace) {
@@ -61,12 +63,10 @@ SimpleHTMLParser::parse(char * buffer, int n)
 					onContentFound(c);
 					lastCharSpace = false;
 				  }
-				//}
+
 				b++;
-				
 			  }
-			
-			break;
+			break;*/
 		}
 		case ANCHOR: {
 			if (match(&b,"href=\"")) {
@@ -101,6 +101,25 @@ SimpleHTMLParser::parse(char * buffer, int n)
 				b++;
 			}
 			break;
+		}
+		case TITLE: {
+			if(!match(&b,"/TITLE>")){
+				char c = *b;
+				//Substitute one or more blank chars with a single space
+				if (c=='\n'||c=='\r'||c=='\t'||c==' ') {
+					if (!lastCharSpace) {
+						onContentFound(' ');
+					}
+					lastCharSpace = true;
+				}
+				else {
+					onContentFound(c);
+					lastCharSpace = false;
+				  }
+				b++;
+			}else{
+				state = START;
+			}
 		}
 		case FRAME: {
 			if (match(&b,"src=\"")) {
