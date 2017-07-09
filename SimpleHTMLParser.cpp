@@ -179,6 +179,5 @@ SimpleHTMLParser::onContentFound(char c) {
 
 void
 SimpleHTMLParser::onAnchorFound(char * url) {
- 	if()
  	urlvector.push_back(string(url));//store the urls in the document to the vector.
 }
