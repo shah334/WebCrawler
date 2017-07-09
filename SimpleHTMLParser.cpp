@@ -29,9 +29,6 @@ SimpleHTMLParser::parse(char * buffer, int n)
 	char * b = buffer;
 	bool lastCharSpace = false;
 	while (b < bufferEnd) {
-		if(counter==1){
-			break;
-		}
 		//printf("<%c,%d,%d>", *b, *b,state);
 		switch (state) {
 		case START: {
