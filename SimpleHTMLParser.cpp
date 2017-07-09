@@ -44,10 +44,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			else if (match(&b,"<FRAME ")) {
 				state = FRAME;
 			}
-			else if	(match(&b,"<")) {
-				state = TAG;
-			}
-			else{
+			else if(match(&b,"<title>")){
 				char c = *b;
 				//Substitute one or more blank chars with a single space
 				if (c=='\n'||c=='\r'||c=='\t'||c==' ') {
@@ -63,6 +60,9 @@ SimpleHTMLParser::parse(char * buffer, int n)
 				
 				b++;
 			  
+			}
+			else if	(match(&b,"<")) {
+				state = TAG;
 			}
 			break;
 		}
