@@ -50,8 +50,8 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			else if	(match(&b,"<")) {
 				state = TAG;
 			}
-		    //else{
-			/**char c = *b;
+		    else{
+			char c = *b;
 				//Substitute one or more blank chars with a single space
 				if (c=='\n'||c=='\r'||c=='\t'||c==' ') {
 					if (!lastCharSpace) {
@@ -66,7 +66,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 
 				b++;
 			  }
-			break;*/
+			break;
 		}
 		case ANCHOR: {
 			if (match(&b,"href=\"")) {
@@ -101,25 +101,6 @@ SimpleHTMLParser::parse(char * buffer, int n)
 				b++;
 			}
 			break;
-		}
-		case TITLE: {
-			if(!match(&b,"/TITLE>")){
-				char c = *b;
-				//Substitute one or more blank chars with a single space
-				if (c=='\n'||c=='\r'||c=='\t'||c==' ') {
-					if (!lastCharSpace) {
-						onContentFound(' ');
-					}
-					lastCharSpace = true;
-				}
-				else {
-					onContentFound(c);
-					lastCharSpace = false;
-				  }
-				b++;
-			}else{
-				state = START;
-			}
 		}
 		case FRAME: {
 			if (match(&b,"src=\"")) {
