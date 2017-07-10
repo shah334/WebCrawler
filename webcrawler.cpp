@@ -58,7 +58,6 @@ WebCrawler::crawl()
 	  printf("%s\n",_urlArray[_headURL]._url);
 	  //int tempLen;
 	  for(int i=0;i<parser.urlvector.size();i++){
-		 if(!_urlToUrlRecord->find(parser.urlvector[i].c_str(),&t)){
 			 int tempLen = 0;
 			 string s = parser.urlvector[i];// get the url
 			 if(s[0]!='#'){
@@ -69,9 +68,11 @@ WebCrawler::crawl()
 					s = _urlArray[_headURL]._url + s;
 				}
 				if(s[0]=='h'){
+					if(!_urlToUrlRecord->find(s.c_str(),&t)){
 					_urlArray[_tailURL]._url = strdup(s.c_str());
 					temp = _urlToUrlRecord->insertItem(_urlArray[_tailURL]._url,_tailURL);
 					_tailURL ++;
+					}
 			 	}
 		   }
 	    }
