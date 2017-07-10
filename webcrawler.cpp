@@ -60,11 +60,9 @@ WebCrawler::crawl()
 	  for(int i=0;i<parser.urlvector.size();i++){
 		 if(!_urlToUrlRecord->find(parser.urlvector[i].c_str(),&t)){
 			 int tempLen = 0;
-			 if(fetchHTML(parser.urlvector[i].c_str(),&tempLen)!=NULL){
 			 _urlArray[_tailURL]._url = strdup(parser.urlvector[i].c_str());
 			 temp = _urlToUrlRecord->insertItem(_urlArray[_tailURL]._url,_tailURL);
 		  	 _tailURL ++;
-		  	 }
 		  }
 	  }
 	 _headURL++;
