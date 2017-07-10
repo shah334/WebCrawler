@@ -68,9 +68,11 @@ WebCrawler::crawl()
 				if(s[0]=='/' && s[1]!='/'){
 					s = _urlArray[_headURL]._url + s;
 				}
-			 _urlArray[_tailURL]._url = strdup(s.c_str());
-			 temp = _urlToUrlRecord->insertItem(_urlArray[_tailURL]._url,_tailURL);
-			 _tailURL ++;
+				if(s[0]=='h'){
+					_urlArray[_tailURL]._url = strdup(s.c_str());
+					temp = _urlToUrlRecord->insertItem(_urlArray[_tailURL]._url,_tailURL);
+					_tailURL ++;
+			 	}
 		   }
 	    }
 	  }
