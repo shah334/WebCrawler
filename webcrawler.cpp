@@ -73,8 +73,7 @@ WebCrawler::crawl()
 					temp = _urlToUrlRecord->insertItem(_urlArray[_tailURL]._url,_tailURL);
 					_tailURL ++;
 					}
-			 	}
-		   }
+			 }
 	    }
 	  }
 	 _headURL++;
