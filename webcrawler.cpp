@@ -78,7 +78,7 @@ WebCrawler::crawl()
 			 string s = parser.urlvector[i];// get the url
 			 if(s[0]!='#'){
 			 	if(s[0] == '/' && s[1]=='/'){
-				 	s = "https:" + s;
+				 	s = "http:" + s;
 				 }
 				if(s[0]=='/' && s[1]!='/'){
 					s = _urlArray[_headURL]._url + s;
