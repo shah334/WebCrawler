@@ -53,8 +53,7 @@ WebCrawler::crawl()
 	  bool temp = parser.parse(doc,len);//parse the document
 	  int t;
 	  _urlArray[_headURL]._description = strdup(parser.description.c_str());
-	  printf("%s\n",_urlArray[_headURL]._description);
-	  printf("%s\n",_urlArray[_headURL]._url);
+
 
 	  //printf("%s\n",parser.description.c_str());
 	  for(int i=0;i<parser.urlvector.size();i++){
@@ -66,6 +65,8 @@ WebCrawler::crawl()
 		  }
 	  	//printf("%s\n",parser.urlvector[i].c_str());
 	  }
+	  printf("%s\n",_urlArray[_headURL]._description);
+	  printf("%s\n",_urlArray[_headURL]._url);
 	 _headURL++;
      /*Fetch the next URL in _headURL
         Increment _headURL
