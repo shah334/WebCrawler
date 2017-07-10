@@ -46,7 +46,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			else if (match(&b,"<FRAME ")) {
 				state = FRAME;
 			}else if(match(&b,"<TITLE>")){
-				printf("TITLE TAG FOUND.\n");
+				//printf("TITLE TAG FOUND.\n");
 				char c = *b;
 				while(1){
 					c = *b;
