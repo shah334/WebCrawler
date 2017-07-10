@@ -50,8 +50,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 				state = TAG;
 			}
 			else {
-				if(match(&b,"<title>"))
-					printf("YAY!");
+				if(match(&b,"<title"))
 				char c = *b;
 				//Substitute one or more blank chars with a single space
 				if (c=='\n'||c=='\r'||c=='\t'||c==' ') {
