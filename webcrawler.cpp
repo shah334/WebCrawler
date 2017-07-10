@@ -56,7 +56,7 @@ WebCrawler::crawl()
 	  if(_headURL==0)
 	  printf("%s\n",_urlArray[0]._description);
 	  if(_headURL==1)
-	  printf("%s\n",_urlArray[1]._description);
+	  printf("%s\n",_urlArray[1]._url);
 
 	  //printf("%s\n",parser.description.c_str());
 	  for(int i=0;i<parser.urlvector.size();i++){
