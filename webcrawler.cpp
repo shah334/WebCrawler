@@ -2,6 +2,8 @@
 #include "webcrawler.h"
 // Add your implementation here
 #include <vector>
+#include <fstream>
+#include <iostream>
 #include <stdio.h>
 #include "SimpleHTMLParser.h"
 #include <stdlib.h>
@@ -55,6 +57,20 @@ WebCrawler::crawl()
 	  bool temp = parser.parse(doc,len);//parse the document
 	  int t;
 	  _urlArray[_headURL]._description = strdup(parser.description.c_str());
+	  string desc = parser.description + " ";
+	  string word = "";
+	  bool insert;
+	  for(int i=0;i<desc.length();i++){
+	  		//string word = "";
+	  		if(desc[i]!=' '){
+	  			word = word + desc[i];
+	  		}else{
+
+	  		}
+
+	  }
+
+
 	  printf("%s\n",_urlArray[_headURL]._description);
 	  //int tempLen;
 	  for(int i=0;i<parser.urlvector.size();i++){
@@ -75,7 +91,7 @@ WebCrawler::crawl()
 							_tailURL ++;
 					}
 				}
-			 }
+			 } 
 	    }
 	  }
 	 _headURL++;
@@ -88,6 +104,13 @@ WebCrawler::crawl()
 		For each word in the document without tags, add the index of this URL to a URLRecordList in the _wordToURLRecordList table if the URL is not already there.*/
  	}//while
 
+}
+
+void writeURLFile(const char * urlFileName){
+	ofstream f;
+	f.open(urlFileName);
+	f<<"Hi\n";
+	f.close();
 }
 
 int main(int argc, char ** argv){
@@ -111,5 +134,6 @@ int main(int argc, char ** argv){
 	}
 	WebCrawler crawler = WebCrawler(maxUrls,noUrls,urls);
 	crawler.crawl();
+	cralwer.writeURLFile("url.txt");
 
 }
