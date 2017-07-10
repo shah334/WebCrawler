@@ -25,6 +25,7 @@ WebCrawler::WebCrawler(int maxUrls, int nInitialURls,  const char ** initialURLs
 	//printf("%s",initialURLs[0]);
   _urlArray = new URLRecord[maxUrls];
   _urlToUrlRecord = new HashTableTemplate <int>();
+  _wordToURLRecordList = new HashTableTemplate <URLRecordList *>();
   bool insert;
  // insert the initialURls
   for(int i=0;i<nInitialURls;i++){
@@ -62,7 +63,6 @@ WebCrawler::crawl()
 		  	 _tailURL ++;
 		  }
 	  }
-	  
 	 _headURL++;
      /*Fetch the next URL in _headURL
         Increment _headURL
