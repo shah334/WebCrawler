@@ -49,7 +49,7 @@ WebCrawler::crawl()
 		 _headURL++;
 		 continue;
 	 }
-	 SimpleHTMLParser parser = new SimpleHTMLParser();
+	 SimpleHTMLParser parser;
 	  bool temp = parser.parse(doc,len);//parse the document
 	  int t;
 	  _urlArray[_headURL]._description = strdup(parser.description.c_str());
