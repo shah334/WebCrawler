@@ -47,9 +47,9 @@ SimpleHTMLParser::parse(char * buffer, int n)
 				state = FRAME;
 			}else if(match(&b,"<TITLE>")){
 				printf("TITLE TAG FOUND.\n");
-				char c;
+				char c = *b;
 				while(c!='<'){
-					c = *b;
+					//c = *b;
 					if (c=='\n'||c=='\r'||c=='\t'||c==' ') {
 					if (!lastCharSpace) {
 						onContentFound(' ');
@@ -60,7 +60,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 					onContentFound(c);
 					lastCharSpace = false;
 				  }
-				
+				c = *b;
 				b++;
 				}
 				break;
