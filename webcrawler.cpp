@@ -110,6 +110,9 @@ void
 WebCrawler::writeURLFile(const char * urlFileName){
 	ofstream f;
 	f.open(urlFileName);
+	for(int i=0;i<_maxUrls;i++){
+		f<<i+1<<_urlArray[i]._url<<"\n"<<_urlArray[i]._description<<"\n";
+	}
 	f<<"Hi\n";
 	f.close();
 }
