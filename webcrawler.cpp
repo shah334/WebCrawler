@@ -60,10 +60,19 @@ WebCrawler::crawl()
 	  for(int i=0;i<parser.urlvector.size();i++){
 		 if(!_urlToUrlRecord->find(parser.urlvector[i].c_str(),&t)){
 			 int tempLen = 0;
-			 _urlArray[_tailURL]._url = strdup(parser.urlvector[i].c_str());
+			 string s = parser.urlvector[i];// get the url
+			 if(s[0]!='#'){
+			 	if(s[0] == '/' && s[1]=='/'){
+				 	s = "http:" + s;
+				 }
+				if(s[0]=='/' && s[1]!='/'){
+					s = _urlArray[_headURL]._url + s;
+				}
+			 _urlArray[_tailURL]._url = strdup(s.c_str());
 			 temp = _urlToUrlRecord->insertItem(_urlArray[_tailURL]._url,_tailURL);
-		  	 _tailURL ++;
-		  }
+			 _tailURL ++;
+		   }
+	    }
 	  }
 	 _headURL++;
      /*Fetch the next URL in _headURL
