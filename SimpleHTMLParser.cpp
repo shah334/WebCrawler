@@ -63,6 +63,8 @@ SimpleHTMLParser::parse(char * buffer, int n)
 				
 				b++;
 				}
+				if(c=='<')
+					break;
 			}
 			else if	(match(&b,"<")) {
 				state = TAG;
