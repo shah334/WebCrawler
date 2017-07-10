@@ -38,7 +38,8 @@ WebCrawler::WebCrawler(int maxUrls, int nInitialURls,  const char ** initialURLs
   _maxUrls = maxUrls;
 }
 
-void 
+
+void
 WebCrawler::crawl()
 {
   while (_headURL <_tailURL) {
@@ -55,12 +56,14 @@ WebCrawler::crawl()
 	  int t;
 	  _urlArray[_headURL]._description = strdup(parser.description.c_str());
 	  printf("%s\n",_urlArray[_headURL]._url);
-	
+	  int tempLen;
 	  for(int i=0;i<parser.urlvector.size();i++){
 		 if(!_urlToUrlRecord->find(parser.urlvector[i].c_str(),&t)){
+			 if(fetchHTML(URL,&tempLen)!=NULL){
 			 _urlArray[_tailURL]._url = strdup(parser.urlvector[i].c_str());
 			 temp = _urlToUrlRecord->insertItem(_urlArray[_tailURL]._url,_tailURL);
 		  	 _tailURL ++;
+		  	 }
 		  }
 	  }
 	 _headURL++;
