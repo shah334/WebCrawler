@@ -5,6 +5,8 @@
 using namespace std;
 SimpleHTMLParser::SimpleHTMLParser()
 {
+	description = "";
+	characterCount = 0;
 }
 
 bool
