@@ -47,11 +47,26 @@ SimpleHTMLParser::parse(char * buffer, int n)
 				state = FRAME;
 			}else if(match(&b,"<TITLE>")){
 				printf("TITLE TAG FOUND.\n");
+				char c = *b;
+				while(c!='<'){
+					if (c=='\n'||c=='\r'||c=='\t'||c==' ') {
+					if (!lastCharSpace) {
+						onContentFound(' ');
+					}
+					lastCharSpace = true;
+					}
+					else {
+					onContentFound(c);
+					lastCharSpace = false;
+				  }
+				
+				b++;
+				}
 			}
 			else if	(match(&b,"<")) {
 				state = TAG;
 			}
-			else {
+			else {/**
 				char c = *b;
 				//Substitute one or more blank chars with a single space
 				if (c=='\n'||c=='\r'||c=='\t'||c==' ') {
@@ -65,7 +80,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 					lastCharSpace = false;
 				}
 				
-				b++;
+				b++;*/
 			}
 			break;
 		}
