@@ -80,8 +80,8 @@ SimpleHTMLParser::parse(char * buffer, int n)
 					onContentFound(c);
 					lastCharSpace = false;
 				}
-				
-				b++;*/
+				*/
+				b++;
 			}
 			break;
 		}
