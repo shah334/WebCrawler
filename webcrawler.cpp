@@ -68,6 +68,9 @@ WebCrawler::crawl()
 					s = _urlArray[_headURL]._url + s;
 				}
 				if(s[0]=='h'){
+					if(_tailURL == maxUrls){
+						return;
+					}
 					if(!_urlToUrlRecord->find(s.c_str(),&t)){
 					_urlArray[_tailURL]._url = strdup(s.c_str());
 					temp = _urlToUrlRecord->insertItem(_urlArray[_tailURL]._url,_tailURL);
