@@ -20,7 +20,7 @@ SimpleHTMLParser::match(char **b, const char *m) {
 bool
 SimpleHTMLParser::parse(char * buffer, int n)
 {
-	enum { START, TAG, SCRIPT, ANCHOR, HREF, META
+	enum { START, TAG, SCRIPT, ANCHOR, HREF,
 	       COMMENT, FRAME, SRC } state;
 
 	state = START;
@@ -44,7 +44,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			else if (match(&b,"<FRAME ")) {
 				state = FRAME;
 			}
-			else if	(match(&b,"<META\CONTENT")) {
+			else if	(match(&b,"<")) {
 				state = TAG;
 			}
 			else {
