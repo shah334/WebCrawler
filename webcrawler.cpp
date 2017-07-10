@@ -106,7 +106,8 @@ WebCrawler::crawl()
 
 }
 
-void writeURLFile(const char * urlFileName){
+void 
+WebCrawler::writeURLFile(const char * urlFileName){
 	ofstream f;
 	f.open(urlFileName);
 	f<<"Hi\n";
