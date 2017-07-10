@@ -192,6 +192,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 void
 SimpleHTMLParser::onContentFound(char c) {
 	if(characterCount<500){
+		printf("%c",c);
 		description = description + c;
 		characterCount ++;
 	}
