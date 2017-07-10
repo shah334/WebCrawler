@@ -59,7 +59,7 @@ WebCrawler::crawl()
 			 _urlArray[_tailURL]._url = strdup(parser.urlvector[i].c_str());
 			 temp = _urlToUrlRecord->insertItem(_urlArray[_tailURL]._url,_tailURL);
 		  	 printf("%s\n",_urlArray[_tailURL]._url);
-		  	 _tailURL ++;	  	 
+		  	 _tailURL ++;
 		  }
 	  	//printf("%s\n",parser.urlvector[i].c_str());
 	  }
