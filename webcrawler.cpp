@@ -53,7 +53,7 @@ WebCrawler::crawl()
 	  bool temp = parser.parse(doc,len);//parse the document
 	  int t;
 	  _urlArray[_headURL]._description = strdup(parser.description.c_str());
-	  printf("%s\nhi\n",_urlArray[_headURL]._description);
+	  printf("%si\n",_urlArray[_headURL]._url);
 	
 	  for(int i=0;i<parser.urlvector.size();i++){
 		 if(!_urlToUrlRecord->find(parser.urlvector[i].c_str(),&t)){
