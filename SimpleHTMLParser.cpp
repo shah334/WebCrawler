@@ -45,7 +45,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			}
 			else if (match(&b,"<FRAME ")) {
 				state = FRAME;
-			}else if(match(&b,"<TITLE")){
+			}else if(match(&b,"<TITLE>")){
 				printf("TITLE TAG FOUND.\n");
 			}
 			else if	(match(&b,"<")) {
