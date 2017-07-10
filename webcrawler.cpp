@@ -68,7 +68,7 @@ WebCrawler::crawl()
 					s = _urlArray[_headURL]._url + s;
 				}
 				if(s[0]=='h'){
-					if(_tailURL == maxUrls){
+					if(_tailURL == _maxUrls){
 						return;
 					}
 					if(!_urlToUrlRecord->find(s.c_str(),&t)){
