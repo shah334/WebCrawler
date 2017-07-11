@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <curl/curl.h>
-
+#include <curl>
+#include <curl.h>
 //
 // Using curl to get a URL and put in in a string 
 // https://stackoverflow.com/questions/2329571/c-libcurl-get-output-into-a-string
