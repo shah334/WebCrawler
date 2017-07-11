@@ -138,12 +138,11 @@ WebCrawler::writeWordFile(const char * wordFileName){
 	HashTableTemplateIterator<URLRecordList *> iterator(_wordToURLRecordList);
 	while(iterator.next(key,list)){
 		//printf("%s\n",key);
-		string s = "";
+		f<<key<<" ";
 		while(list!=NULL){
-			s = s + list->_urlRecordIndex +" ";
+			f<<list->_urlRecordIndex<<" ";
 		}
-		s = string(key) +" "+ s;
-		f<<s<<"\n";
+		f<<"\n";
 	}
 }
 
