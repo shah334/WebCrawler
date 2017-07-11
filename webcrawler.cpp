@@ -162,6 +162,6 @@ int main(int argc, char ** argv){
 	WebCrawler crawler = WebCrawler(maxUrls,noUrls,urls);
 	crawler.crawl();
 	crawler.writeURLFile("url.txt");
-	crawler.
+	crawler.createHash();
 
 }
