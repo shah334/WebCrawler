@@ -64,7 +64,7 @@ WebCrawler::crawl()
 	  vector<string> strs;
 	  boost::split(strs,_urlArray[i]._description,boost::is_any_of(" "));
 	  for(int i=0;i<strs.size();i++){
-	  	printf("%s\n",strs.c_str());
+	  	printf("%s\n",strs[i].c_str());
 	  }
 	  //int tempLen;
 	  for(int i=0;i<parser.urlvector.size();i++){
