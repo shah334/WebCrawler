@@ -8,6 +8,8 @@
 #include "SimpleHTMLParser.h"
 #include <stdlib.h>
 #include <string>
+#include <boost/algorithm/string.hpp>
+#include <boost/lexical_cast.hpp>
 #include <vector>
 #include <string.h>
 using namespace std;
