@@ -108,7 +108,7 @@ WebCrawler::createHash(){
 	bool t;
 	bool insert;
 	for(int i=0;i<_maxUrls;i++){
-		string description = _urlArray[i] + " ";
+		string description = _urlArray[i]->_description + " ";
 		string str = "";
 			for(int j=0;j<description.length();j++){
 				if(description[i]!=' '){
