@@ -94,7 +94,7 @@ WebCrawler::crawl()
 				if(s[0]=='/' && s[1]!='/'){
 					s = _urlArray[_headURL]._url + s;
 				}
-				if(s[0]=='h'){
+				if(s[0]=='h'&&s[1]=='t'){
 					if(_tailURL < _maxUrls){
 						if(!_urlToUrlRecord->find(s.c_str(),&t)){
 							_urlArray[_tailURL]._url = strdup(s.c_str());
@@ -125,6 +125,16 @@ WebCrawler::writeURLFile(const char * urlFileName){
 		f<<i+1<<" "<<_urlArray[i]._url<<"\n"<<_urlArray[i]._description<<"\n\n";
 	}
 	f.close();
+}
+void
+WebCrawler::writeWordFile(const char * wordFileName){
+	ofstream f;
+	f.open(wordFileName);
+	const char * key;
+	URLRecordList * list = new URLRecordList();
+	while(_wordToURLRecordList->next(key,&list)){
+		printf("%s\n",key);
+	}
 }
 
 void
