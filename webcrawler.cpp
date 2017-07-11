@@ -8,6 +8,7 @@
 #include "SimpleHTMLParser.h"
 #include <stdlib.h>
 #include <string>
+#include <vector>
 #include <string.h>
 using namespace std;
 char * data;
@@ -109,24 +110,19 @@ WebCrawler::createHash(){
 	bool insert;
 	int k = 0;
 	for(int i=0;i<_maxUrls;i++){
-		string description = string(_urlArray[i]._description) + " ";
-		string str = "";
-			for(int j=0;j<description.length();j++){
-				if(description[i]!=' '){
-					str = str + description[i];
-				}else{
-					printf("%s\n",str.c_str());
-					URLRecordList * list = new URLRecordList();
-					t = _wordToURLRecordList -> find(str.c_str(),&list);
-
+		vector<string> strs;
+		boost::split(strs,_urlArray[i]._description,boost::is_any_of(" "));
+		URLRecordList * list = new URLRecordList();
+		for(int j=0;j<strs[j];j++){
+			printf("%s\n",srtrs[j].c_str());
+			t = _wordToURLRecordList -> find(strs[j].c_str(),&list);
 					if(t==false){//word doesnt exist
 						printf("hi\n");
 						URLRecordList * node = new URLRecordList();
 						node->_urlRecordIndex = i;
 						node->_next = NULL;
-						insert = _wordToURLRecordList -> insertItem(str.c_str(),node);
+						insert = _wordToURLRecordList -> insertItem(strs[j].c_str(),node);
 					}else{//word exist
-
 						while(list->_next!=NULL){
 							if(list->_urlRecordIndex == i){
 								k = 1;
@@ -142,10 +138,9 @@ WebCrawler::createHash(){
 						}
 
 					}
-					str = "";
 				}
-			}
-	}
+		}
+	
 }
 
 int main(int argc, char ** argv){
