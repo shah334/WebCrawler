@@ -57,10 +57,15 @@ WebCrawler::crawl()
 		 continue;
 	 }
 	 SimpleHTMLParser parser;
-	  bool temp = parser.parse(doc,len);//parse the document
-	  int t;
-	  _urlArray[_headURL]._description = strdup(parser.description.c_str());
-	  printf("%s\n",parser.doc.c_str());
+	 bool temp = parser.parse(doc,len);//parse the document
+	 int t;
+	 _urlArray[_headURL]._description = strdup(parser.description.c_str());
+	  //printf("%s\n",parser.doc.c_str());
+	  vector<string> strs;
+	  boost::split(strs,_urlArray[i]._description,boost::is_any_of(" "));
+	  for(int i=0;i<strs.size();i++){
+	  	printf("%s\n",strs.c_str());
+	  }
 	  //int tempLen;
 	  for(int i=0;i<parser.urlvector.size();i++){
 			 int tempLen = 0;
