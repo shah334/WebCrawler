@@ -115,6 +115,7 @@ WebCrawler::createHash(){
 				if(description[i]!=' '){
 					str = str + description[i];
 				}else{
+					printf("%s\n",str);
 					URLRecordList * list = new URLRecordList();
 					t = _wordToURLRecordList -> find(str.c_str(),&list);
 
