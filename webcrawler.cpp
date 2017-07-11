@@ -62,6 +62,7 @@ WebCrawler::crawl()
 	 _urlArray[_headURL]._description = strdup(parser.description.c_str());
 	  vector<string> strs;
 	  boost::split(strs,parser.doc,boost::is_any_of(" "));
+
 	  for(int i=0;i<strs.size();i++){
 	  	URLRecordList * list = new URLRecordList();
 	  	bool isThere = _wordToURLRecordList.find(strs[i].c_str(), &list);
@@ -72,15 +73,16 @@ WebCrawler::crawl()
 	  		temp = _wordToURLRecordList->insertItem(strs[i].c_str(),l);
 	  	}else{
 	  		URLRecordList * l = list;
-	  		while(l->next!=NULL){
-	  			l=l->next;
+	  		while(l->_next!=NULL){
+	  			l=l->_next;
 	  		}
 	  		URLRecordList * node = new URLRecordList();
 	  		node->_urlRecordIndex = _headURL;
 	  		node->_next = NULL;
-	  		l->next = node;
+	  		l->_next = node;
 	  	}
 	  }
+
 	  //int tempLen;
 	  for(int i=0;i<parser.urlvector.size();i++){
 			 int tempLen = 0;
