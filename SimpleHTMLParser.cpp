@@ -7,6 +7,7 @@ SimpleHTMLParser::SimpleHTMLParser()
 {
 	description = "";
 	characterCount = 0;
+	doc = "";
 }
 
 bool
@@ -191,7 +192,10 @@ SimpleHTMLParser::parse(char * buffer, int n)
 	}
 }
 
-
+vvoid
+SimpleHTMLParser::docContentFound(char c){
+	doc + = c;
+}
 
 void
 SimpleHTMLParser::onContentFound(char c) {
