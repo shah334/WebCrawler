@@ -57,20 +57,6 @@ WebCrawler::crawl()
 	  bool temp = parser.parse(doc,len);//parse the document
 	  int t;
 	  _urlArray[_headURL]._description = strdup(parser.description.c_str());
-	  string desc = parser.description + " ";
-	  string word = "";
-	  bool insert;
-	  for(int i=0;i<desc.length();i++){
-	  		//string word = "";
-	  		if(desc[i]!=' '){
-	  			word = word + desc[i];
-	  		}else{
-
-	  		}
-
-	  }
-
-
 	  printf("%s\n",_urlArray[_headURL]._url);
 	  //int tempLen;
 	  for(int i=0;i<parser.urlvector.size();i++){
@@ -91,7 +77,7 @@ WebCrawler::crawl()
 							_tailURL ++;
 					}
 				}
-			 } 
+			 }
 	    }
 	  }
 	 _headURL++;
@@ -106,7 +92,7 @@ WebCrawler::crawl()
 
 }
 
-void 
+void
 WebCrawler::writeURLFile(const char * urlFileName){
 	ofstream f;
 	f.open(urlFileName);
@@ -114,6 +100,44 @@ WebCrawler::writeURLFile(const char * urlFileName){
 		f<<i+1<<" "<<_urlArray[i]._url<<"\n"<<_urlArray[i]._description<<"\n\n";
 	}
 	f.close();
+}
+
+void
+WebCrawler::creatHash(){
+
+	bool t;
+	bool insert;
+	for(int i=0;i<_maxUrls;i++){
+		string description = _urlArray[i] + " ";
+		string str = "";
+			for(int j=0;j<description.length();j++){
+				if(description[i]!=' '){
+					str = str + description[i];
+				}else{
+					URLRecordList * list = new URLRecordList();
+					t = _wordToURLRecordList -> find(str.c_str(),list);
+
+					if(t==false){//word doesnt exist
+						URLRecordList * node = new URLRecordList();
+						node->_urlRecordIndex = i;
+						node->_next = NULL;
+						insert = _wordToURLRecordList -> insertItem(str.c_str(),node);
+					}else{//word exist
+
+						while(list->_next!=NULL){
+							if(list->_urlRecordIndex == i){
+								break;
+							}
+							list = list->_next;
+						}
+						list->_next->_urlRecordIndex = i;
+						list->_next->_next = NULL;
+
+					}
+					str = "";
+				}
+			}
+	}
 }
 
 int main(int argc, char ** argv){
@@ -138,5 +162,6 @@ int main(int argc, char ** argv){
 	WebCrawler crawler = WebCrawler(maxUrls,noUrls,urls);
 	crawler.crawl();
 	crawler.writeURLFile("url.txt");
+	crawler.
 
 }

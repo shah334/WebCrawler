@@ -41,7 +41,8 @@ class WebCrawler {
 
   // Write list of words with their urls to file
   void writeWordFile(const char *wordFileName);
-
+  
+  void createHash();
   // Add any other objects you may need
 };
 

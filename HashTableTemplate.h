@@ -122,7 +122,7 @@ bool HashTableTemplate<Data>::insertItem( const char * key, Data data)
     temp->_key = strdup(key);
     temp->_next = _buckets[h];
     _buckets[h] = temp;
-    return false; 
+    return false;
   }
 
 }
