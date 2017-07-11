@@ -107,7 +107,7 @@ WebCrawler::writeURLFile(const char * urlFileName){
 
 void
 WebCrawler::createHash(){
-
+		//TODO
 	bool t;
 	bool insert;
 	int k = 0;
@@ -141,8 +141,7 @@ WebCrawler::createHash(){
 
 					}
 				}
-		}
-	
+	}
 }
 
 int main(int argc, char ** argv){
