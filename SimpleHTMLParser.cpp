@@ -194,7 +194,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 
 void
 SimpleHTMLParser::docContentFound(char c){
-	doc + = c;
+	doc  = doc + c;
 }
 
 void
