@@ -218,7 +218,6 @@ bool HashTableTemplateIterator<Data>::next(const char * & key, Data & data)
   data = _currentEntry->_data;
   key = tempkey;
   _currentEntry = _currentEntry->_next;
-  delete tempkey;
   // Add implementation her
   return true;
 }
