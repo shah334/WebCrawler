@@ -103,7 +103,7 @@ WebCrawler::writeURLFile(const char * urlFileName){
 }
 
 void
-WebCrawler::creatHash(){
+WebCrawler::createHash(){
 
 	bool t;
 	bool insert;
