@@ -165,10 +165,11 @@ int main(int argc, char ** argv){
 			k++;
 		}
 	}else{
+		noUrls = argc - 1;
 		const char ** urls = new const char * [argc-1];
 		for(int i=1;i<argc;i++){
 			urls[k] = (const char*)argv[i];
-			k++
+			k++;
 		}
 	}
 	WebCrawler crawler = WebCrawler(maxUrls,noUrls,urls);
