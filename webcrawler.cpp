@@ -107,6 +107,7 @@ WebCrawler::createHash(){
 
 	bool t;
 	bool insert;
+	int k = 0;
 	for(int i=0;i<_maxUrls;i++){
 		string description = string(_urlArray[i]._description) + " ";
 		string str = "";
@@ -126,12 +127,16 @@ WebCrawler::createHash(){
 
 						while(list->_next!=NULL){
 							if(list->_urlRecordIndex == i){
+								k = 1;
 								break;
 							}
 							list = list->_next;
 						}
-						list->_next->_urlRecordIndex = i;
-						list->_next->_next = NULL;
+						if(k!=0){
+							list->_next->_urlRecordIndex = i;
+							list->_next->_next = NULL;
+							k=0
+						}
 
 					}
 					str = "";
