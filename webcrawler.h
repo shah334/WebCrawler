@@ -26,7 +26,7 @@ class WebCrawler {
   int _tailURL;            // Next position unused in the urlArray
 
   HashTableTemplate<int> * _urlToUrlRecord;         //  maps a URL to its index in the URLArray 
-  
+
   HashTableTemplate<URLRecordList *> *_wordToURLRecordList; // maps a word to a list of URLs
 
  public:
