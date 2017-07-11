@@ -69,7 +69,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 			else if	(match(&b,"<")) {
 				state = TAG;
 			}
-			else {/**
+			else {
 				char c = *b;
 				//Substitute one or more blank chars with a single space
 				if (c=='\n'||c=='\r'||c=='\t'||c==' ') {
@@ -82,7 +82,6 @@ SimpleHTMLParser::parse(char * buffer, int n)
 					onContentFound(c);
 					lastCharSpace = false;
 				}
-				*/
 				b++;
 			}
 			break;
