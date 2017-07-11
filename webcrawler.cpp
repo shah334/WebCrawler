@@ -60,7 +60,7 @@ WebCrawler::crawl()
 	  bool temp = parser.parse(doc,len);//parse the document
 	  int t;
 	  _urlArray[_headURL]._description = strdup(parser.description.c_str());
-	  //printf("%s\n",_urlArray[_headURL]._url);
+	  printf("%s\n",_urlArray[_headURL]._url);
 	  //int tempLen;
 	  for(int i=0;i<parser.urlvector.size();i++){
 			 int tempLen = 0;
@@ -153,12 +153,14 @@ int main(int argc, char ** argv){
 	int noUrls = 0;
 	string option="";
 	int k=0;
+	const char ** urls;
 	option = string(argv[1]);
 	if(option.compare("-u")){
 		maxUrls = atoi(argv[2]);
 		//printf("%d%s\n",maxUrls,u);
 		noUrls = argc - 3;
-		const char ** urls = new const char* [noUrls];//Store the initial urls.
+		//Store the initial urls.
+		urls = new const char* [noUrls];
 		for(int i=3;i<argc;i++){
 			urls[k] = (const char*)argv[i];
 			printf("%s\n", urls[k]);
@@ -166,7 +168,7 @@ int main(int argc, char ** argv){
 		}
 	}else{
 		noUrls = argc - 1;
-		const char ** urls = new const char * [argc-1];
+		urls = new const char * [argc-1];
 		for(int i=1;i<argc;i++){
 			urls[k] = (const char*)argv[i];
 			k++;
