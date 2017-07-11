@@ -151,7 +151,7 @@ int main(int argc, char ** argv){
 	//Sample input: webcrawl -u 100 http://www.purdue.edu http://www.slashdot.org http://www.cnn.com
 	int maxUrls = 100;
 	int noUrls = 0;
-	//string option="";
+	string option="";
 	int k=0;
 	option = string(argv[1]);
 	if(option.compare("-u")){
