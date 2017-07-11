@@ -132,7 +132,7 @@ WebCrawler::writeWordFile(const char * wordFileName){
 	f.open(wordFileName);
 	const char * key;
 	URLRecordList * list = new URLRecordList();
-	while(_wordToURLRecordList->next(key,&list)){
+	while(_wordToURLRecordList->next(&key,&list)){
 		printf("%s\n",key);
 	}
 }
@@ -209,5 +209,6 @@ int main(int argc, char ** argv){
 	crawler.crawl();
 	crawler.writeURLFile("url.txt");
 	//crawler.createHash();
+	crawler.writeWordFile("word.txt");
 
 }
