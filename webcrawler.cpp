@@ -113,7 +113,7 @@ WebCrawler::createHash(){
 		vector<string> strs;
 		boost::split(strs,_urlArray[i]._description,boost::is_any_of(" "));
 		URLRecordList * list = new URLRecordList();
-		for(int j=0;j<strs[j];j++){
+		for(int j=0;j<strs.size();j++){
 			printf("%s\n",strs[j].c_str());
 			t = _wordToURLRecordList -> find(strs[j].c_str(),&list);
 					if(t==false){//word doesnt exist
