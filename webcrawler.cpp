@@ -65,6 +65,7 @@ WebCrawler::crawl()
 
 	  for(int i=0;i<strs.size();i++){
 	  	URLRecordList * list = new URLRecordList();
+	  	printf("%s\n",strs[i].c_str());
 	  	bool isThere = _wordToURLRecordList->find(strs[i].c_str(), &list);
 	  	if(!isThere){//word doesnt exist
 	  		URLRecordList * l = new URLRecordList();
