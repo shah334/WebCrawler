@@ -135,7 +135,7 @@ WebCrawler::createHash(){
 						if(k!=0){
 							list->_next->_urlRecordIndex = i;
 							list->_next->_next = NULL;
-							k=0
+							k=0;
 						}
 
 					}
