@@ -60,11 +60,26 @@ WebCrawler::crawl()
 	 bool temp = parser.parse(doc,len);//parse the document
 	 int t;
 	 _urlArray[_headURL]._description = strdup(parser.description.c_str());
-	  //printf("%s\n",parser.doc.c_str());
 	  vector<string> strs;
 	  boost::split(strs,parser.doc,boost::is_any_of(" "));
 	  for(int i=0;i<strs.size();i++){
-	  	printf("%s\n",strs[i].c_str());
+	  	URLRecordList * list = new URLRecordList();
+	  	bool isThere = _wordToURLRecordList.find(strs[i].c_str(), &list);
+	  	if(!isThere){//word doesnt exist
+	  		URLRecordList * l = new URLRecordList();
+	  		l->_urlRecordIndex = _headURL;
+	  		l->_next = NULL;
+	  		temp = _wordToURLRecordList->insertItem(strs[i].c_str(),l);
+	  	}else{
+	  		URLRecordList * l = list;
+	  		while(l->next!=NULL){
+	  			l=l->next;
+	  		}
+	  		URLRecordList * node = new URLRecordList();
+	  		node->_urlRecordIndex = _headURL;
+	  		node->_next = NULL;
+	  		l->next = node;
+	  	}
 	  }
 	  //int tempLen;
 	  for(int i=0;i<parser.urlvector.size();i++){
