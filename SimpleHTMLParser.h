@@ -17,11 +17,13 @@ class SimpleHTMLParser {
 	SimpleHTMLParser();
 	int characterCount;
 	string description;
+	string doc;
 	vector<string> urlvector; 
 	bool parse(char * buffer, int n);
 
 	// Calbacks
 	virtual void onContentFound(char c);
+	virtual void docContentFound(char c);
 	virtual void onAnchorFound(char * url);
 };
 
