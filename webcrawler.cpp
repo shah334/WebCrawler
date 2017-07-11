@@ -72,7 +72,7 @@ WebCrawler::crawl()
 	  		l->_urlRecordIndex = _headURL;
 	  		l->_next = NULL;
 	  		temp = _wordToURLRecordList->insertItem(strs[i].c_str(),l);
-	  		printf("ADDED:%s \n",strs[i].c_str());
+	  		//printf("ADDED:%s \n",strs[i].c_str());
 	  	}else{
 	  		URLRecordList * l = list;
 	  		while(l->_next!=NULL){
@@ -82,7 +82,7 @@ WebCrawler::crawl()
 	  		node->_urlRecordIndex = _headURL;
 	  		node->_next = NULL;
 	  		l->_next = node;
-	  		printf("was already there:%s \n",strs[i].c_str());
+	  		//printf("was already there:%s \n",strs[i].c_str());
 	  	}
 	  }
 
