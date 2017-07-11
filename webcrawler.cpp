@@ -129,6 +129,7 @@ WebCrawler::createHash(){
 							if(list->_urlRecordIndex == i){
 								k = 1;
 								break;
+								printf("%d\n",list->_urlRecordIndex);
 							}
 							list = list->_next;
 						}
