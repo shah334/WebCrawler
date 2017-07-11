@@ -192,7 +192,7 @@ SimpleHTMLParser::parse(char * buffer, int n)
 	}
 }
 
-vvoid
+void
 SimpleHTMLParser::docContentFound(char c){
 	doc + = c;
 }
