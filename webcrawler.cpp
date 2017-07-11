@@ -119,6 +119,7 @@ WebCrawler::createHash(){
 					t = _wordToURLRecordList -> find(str.c_str(),&list);
 
 					if(t==false){//word doesnt exist
+						printf("hi\n");
 						URLRecordList * node = new URLRecordList();
 						node->_urlRecordIndex = i;
 						node->_next = NULL;
