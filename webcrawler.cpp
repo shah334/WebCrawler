@@ -149,20 +149,27 @@ int main(int argc, char ** argv){
 
 	//printf("hi");
 	//Sample input: webcrawl -u 100 http://www.purdue.edu http://www.slashdot.org http://www.cnn.com
-	int maxUrls = 0;
+	int maxUrls = 100;
 	int noUrls = 0;
 	//string option="";
 	int k=0;
-	//option = string(argv[1]);
-	maxUrls = atoi(argv[2]);
-	char * u = argv[3];
-	//printf("%d%s\n",maxUrls,u);
-	noUrls = argc - 3;
-	const char ** urls = new const char* [noUrls];//Store the initial urls.
-	for(int i=3;i<argc;i++){
-		urls[k] = (const char*)argv[i];
-		printf("%s\n", urls[k]);
-		k++;
+	option = string(argv[1]);
+	if(option.compare("-u")){
+		maxUrls = atoi(argv[2]);
+		//printf("%d%s\n",maxUrls,u);
+		noUrls = argc - 3;
+		const char ** urls = new const char* [noUrls];//Store the initial urls.
+		for(int i=3;i<argc;i++){
+			urls[k] = (const char*)argv[i];
+			printf("%s\n", urls[k]);
+			k++;
+		}
+	}else{
+		const char ** urls = new const char * [argc-1];
+		for(int i=1;i<argc;i++){
+			urls[k] = (const char*)argv[i];
+			k++
+		}
 	}
 	WebCrawler crawler = WebCrawler(maxUrls,noUrls,urls);
 	crawler.crawl();
