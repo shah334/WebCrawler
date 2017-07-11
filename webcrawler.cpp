@@ -71,7 +71,7 @@ WebCrawler::crawl()
 	  }
 
 
-	  printf("%s\n",_urlArray[_headURL]._description);
+	  printf("%s\n",_urlArray[_headURL]._url);
 	  //int tempLen;
 	  for(int i=0;i<parser.urlvector.size();i++){
 			 int tempLen = 0;
