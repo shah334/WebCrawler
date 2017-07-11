@@ -194,9 +194,9 @@ SimpleHTMLParser::parse(char * buffer, int n)
 
 void
 SimpleHTMLParser::docContentFound(char c){
-	if((c>=65 && c<=90)||(c>=97&&c<=122)||c==' ')
+	if((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == ' '|| c == '_')
 		doc  = doc + c;
-}
+ }
 
 void
 SimpleHTMLParser::onContentFound(char c) {
