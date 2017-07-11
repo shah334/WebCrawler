@@ -141,6 +141,7 @@ WebCrawler::writeWordFile(const char * wordFileName){
 		f<<key<<" ";
 		while(list!=NULL){
 			f<<list->_urlRecordIndex<<" ";
+			list = list->_next;
 		}
 		f<<"\n";
 	}
