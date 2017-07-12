@@ -176,7 +176,7 @@ int main(int argc, char ** argv){
 		urls = new const char * [noUrls];
 		for(int i=1;i<argc;i++){
 			urls[k] = (const char *)argv[i];
-			k++
+			k++;
 		}
 	}
 	/*
