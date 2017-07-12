@@ -82,10 +82,12 @@ WebCrawler::crawl()
 	  			l=l->_next;
 	  		}
 	  		if(foo==true){
+		  		if(l->_urlRecordIndex != _headURL){
 	  			URLRecordList * node = new URLRecordList();
 	  			node->_urlRecordIndex = _headURL;
 	  			node->_next = NULL;
 	  			l->_next = node;
+	  			}
 	  		}
 	  		//printf("was already there:%s \n",strs[i].c_str());
 	  	}
