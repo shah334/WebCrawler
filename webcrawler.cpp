@@ -168,6 +168,7 @@ int main(int argc, char ** argv){
 		urls = new const char * [noUrls];
 		for(int i=3;i<argc;i++){
 			urls[k] = (const char *)argv[i];
+			printf("%s\n",urls[k]);
 			k++;
 		}
 	}else{
@@ -176,6 +177,7 @@ int main(int argc, char ** argv){
 		urls = new const char * [noUrls];
 		for(int i=1;i<argc;i++){
 			urls[k] = (const char *)argv[i];
+			printf("%s\n",urls[k]);
 			k++;
 		}
 	}
