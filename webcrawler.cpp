@@ -152,52 +152,34 @@ WebCrawler::writeWordFile(const char * wordFileName){
 	}
 }
 
-void
-WebCrawler::createHash(){
-		//TODO
-	/**bool t;
-	bool insert;
-	int k = 0;
-	for(int i=0;i<_maxUrls;i++){
-		vector<string> strs;
-		boost::split(strs,_urlArray[i]._description,boost::is_any_of(" "));
-		URLRecordList * list = new URLRecordList();
-		for(int j=0;j<strs.size();j++){
-			printf("%s\n",strs[j].c_str());
-			t = _wordToURLRecordList -> find(strs[j].c_str(),&list);
-					if(t==false){//word doesnt exist
-						printf("hi\n");
-						URLRecordList * node = new URLRecordList();
-						node->_urlRecordIndex = i;
-						node->_next = NULL;
-						insert = _wordToURLRecordList -> insertItem(strs[j].c_str(),node);
-					}else{//word exist
-						while(list->_next!=NULL){
-							if(list->_urlRecordIndex == i){
-								k = 1;
-								break;
-								printf("%d\n",list->_urlRecordIndex);
-							}
-							list = list->_next;
-						}
-						if(k!=0){
-							list->_next->_urlRecordIndex = i;
-							list->_next->_next = NULL;
-							k=0;
-						}
-
-					}
-				}
-	}*/
-}
-
 int main(int argc, char ** argv){
-
-	//printf("hi");
+	 
+	 if(argc<2){
+		 exit(1);
+	 }
+	int k = 0;
+	const char ** urls;
 	//Sample input: webcrawl -u 100 http://www.purdue.edu http://www.slashdot.org http://www.cnn.com
 	int maxUrls = 100;
 	int noUrls = 0;
-	string option="";
+	if(!strcmp(argv[1],"-u")){
+		maxUrls = argv[2];
+		noUrls = argc-3;
+		urls = new const char * [noUrls];
+		for(int i=3;i<argc;i++){
+			urls[k] = (const char *)argv[i];
+			k++;
+		}
+	}else{
+		maxUrls = 100;
+		noUrls = argc - 1;
+		urls = new const char * [noUrls];
+		for(int i=1;i<argc;i++){
+			urls[k] = (const char *)argv[i];
+			k++
+		}
+	}
+	/*
 	int k=0;
 	const char ** urls;
 	option = string(argv[1]);
@@ -219,11 +201,11 @@ int main(int argc, char ** argv){
 			urls[k] = (const char*)argv[i];
 			k++;
 		}
-	}
+	}*/
 	WebCrawler crawler = WebCrawler(maxUrls,noUrls,urls);
+	
 	crawler.crawl();
 	crawler.writeURLFile("url.txt");
-	//crawler.createHash();
 	crawler.writeWordFile("word.txt");
 
 }
