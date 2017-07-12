@@ -75,13 +75,18 @@ WebCrawler::crawl()
 	  		//printf("ADDED:%s \n",strs[i].c_str());
 	  	}else{
 	  		URLRecordList * l = list;
+	  		bool foo = true;
 	  		while(l->_next!=NULL){
+		  		if(l->_urlRecordIndex == _headURL)
+		  			foo = false;//dont add, already there
 	  			l=l->_next;
 	  		}
-	  		URLRecordList * node = new URLRecordList();
-	  		node->_urlRecordIndex = _headURL;
-	  		node->_next = NULL;
-	  		l->_next = node;
+	  		if(foo==true){
+	  			URLRecordList * node = new URLRecordList();
+	  			node->_urlRecordIndex = _headURL;
+	  			node->_next = NULL;
+	  			l->_next = node;
+	  		}
 	  		//printf("was already there:%s \n",strs[i].c_str());
 	  	}
 	  }
