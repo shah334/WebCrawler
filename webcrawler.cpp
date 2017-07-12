@@ -163,7 +163,7 @@ int main(int argc, char ** argv){
 	int maxUrls = 100;
 	int noUrls = 0;
 	if(!strcmp(argv[1],"-u")){
-		maxUrls = argv[2];
+		maxUrls = atoi(argv[2]);
 		noUrls = argc-3;
 		urls = new const char * [noUrls];
 		for(int i=3;i<argc;i++){
