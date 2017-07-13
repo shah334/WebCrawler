@@ -62,7 +62,7 @@ WebCrawler::crawl()
 	 _urlArray[_headURL]._description = strdup(parser.description.c_str());
 	  vector<string> strs;
 	  boost::split(strs,parser.doc,boost::is_any_of(" "));
-
+	  printf("%d: %s\n",(_headURL + 1),_urlArray[_headURL]._url)
 	  for(int i=0;i<strs.size();i++){
 	  	URLRecordList * list = new URLRecordList();
 	  	//printf("%s\n",strs[i].c_str());
